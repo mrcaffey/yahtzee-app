@@ -10,6 +10,8 @@ import d6 from '../images/d6.png'
 
 const DiceImg = styled(Image)`
   margin-left: 20px;
+  cursor: pointer;
+  border-bottom: ${ props => props.selected ? 'solid 2px blue' : '' };
 `
 
 const images = {
@@ -21,11 +23,13 @@ const images = {
   d6,
 }
 
-const Dice = ({ value }) => (
+const Dice = ({ value, index, kept, toggleKept }) => (
   <Grid.Column width={3}>
     <DiceImg
+      selected={kept}
       src={images[`d${value}`]}
       alt={`dice value ${value}`}
+      onClick={() => toggleKept(index)}
     />
   </Grid.Column>
 )

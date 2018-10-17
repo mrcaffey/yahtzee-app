@@ -11,7 +11,7 @@ import d6 from '../images/d6.png'
 const DiceImg = styled(Image)`
   margin-left: 20px;
   cursor: pointer;
-  border-bottom: ${ props => props.selected ? 'solid 2px blue' : '' };
+  border-bottom: ${ props => props.selected ? 'solid 2px green' : '' };
 `
 
 const images = {

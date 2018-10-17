@@ -7,6 +7,8 @@ import d3 from '../images/d3.png'
 import d4 from '../images/d4.png'
 import d5 from '../images/d5.png'
 import d6 from '../images/d6.png'
+import { toggleKept } from '../reducers/currentGame'
+import { connect } from 'react-redux'
 
 const DiceImg = styled(Image)`
   margin-left: 20px;
@@ -23,15 +25,15 @@ const images = {
   d6,
 }
 
-const Dice = ({ value, index, kept, toggleKept }) => (
+const Dice = ({ value, index, kept, dispatch }) => (
   <Grid.Column width={3}>
     <DiceImg
       selected={kept}
       src={images[`d${value}`]}
       alt={`dice value ${value}`}
-      onClick={() => toggleKept(index)}
+      onClick={() => dispatch(toggleKept(index))}
     />
   </Grid.Column>
 )
 
-export default Dice
+export default connect()(Dice)

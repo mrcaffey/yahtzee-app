@@ -18,7 +18,7 @@ class ScoreRow extends React.Component {
     const { currentGame: { dice, scores }, dispatch } = this.props;
     const entry = scores.find( d => d.name === key )
     dispatch(resetRoll())
-
+    
     if (entry.value)
       entry.score = singles(entry.value, dice)
     else if (entry.addAll)
@@ -31,7 +31,7 @@ class ScoreRow extends React.Component {
         return entry
         return score
   })
-    dispatch(this.updateScores(newScores))
+    dispatch(this.updateScore(newScores))
 }
 
   render() {
